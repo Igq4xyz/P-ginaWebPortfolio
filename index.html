@@ -1,41 +1,94 @@
 <!DOCTYPE html>
 <html lang="es">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Portafolio - Izan</title>
-    <link rel="stylesheet" href="style.css" />
-  </head>
-  <body>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
     <header>
-      <h1>Mi Portafolio</h1>
-      <nav>
-        <ul>
-          <li><a href="index.html">Inicio</a></li>
-          <li class="dropdown">
-            <a href="#">Proyectos</a>
-            <ul class="dropdown-menu">
-              <li><a href="proyecto1.html">Proyecto 1</a></li>
-              <li><a href="proyecto2.html">Proyecto 2</a></li>
-              <li><a href="proyecto3.html">Proyecto 3</a></li>
-              <li><a href="proyecto4.html">Proyecto 4</a></li>
-              <li><a href="proyecto5.html">Proyecto 5</a></li>
+        <h1>Mi Portafolio</h1>
+        <nav>
+            <ul>
+                <li><a href="index.html">Inicio</a></li>
+                <li class="dropdown">
+                    <a href="#">Proyectos</a>
+                    <ul class="dropdown-menu">
+                        <li><a href="proyecto1.html">Proyecto 1</a></li>
+                        <li><a href="proyecto2.html">Proyecto 2</a></li>
+                        <li><a href="proyecto3.html">Proyecto 3</a></li>
+                        <li><a href="proyecto4.html">Proyecto 4</a></li>
+                        <li><a href="proyecto5.html">Proyecto 5</a></li>
+                    </ul>
+                </li>
             </ul>
-          </li>
-        </ul>
-      </nav>
+        </nav>
     </header>
 
-    <section class="contenido">
-      <h2>Bienvenido a mi página web</h2>
-      <p>
-        Aquí podrás encontrar todos mis proyectos con información detallada de
-        cada uno.
-      </p>
+
+    <section class="hero" style="display:flex;align-items:center;justify-content:space-between;padding:80px;">
+        <div>
+            <h2 style="font-size:40px;margin:0;animation:fade 1s;">Hola, soy Izan, Desarrollador Web y entusiasta de
+                Linux</h2>
+            <p style="opacity:0.8;animation:fade 1.4s;">Creo proyectos con Docker, servidores Linux y aplicaciones web
+                modernas.</p>
+
+
+            <div class="social-links" style="display:flex;gap:15px;margin:25px 0;animation:fade 1.6s;">
+                <a href="#"><img src="icons/instagram.svg" width="28"></a>
+                <a href="#"><img src="icons/github.svg" width="28"></a>
+                <a href="#"><img src="icons/linkedin.svg" width="28"></a>
+                <a href="#"><img src="icons/twitter.svg" width="28"></a>
+            </div>
+
+
+            <a href="#proyectos" class="btn-proyectos"
+                style="background:#0077ff;padding:12px 24px;border-radius:6px;color:white;text-decoration:none;display:inline-block;animation:fade 2s;">Ver
+                Proyectos</a>
+        </div>
+
+
+        <img src="img/profile.png" width="280"
+            style="border-radius:15px;filter:drop-shadow(0 0 20px #000);animation:fadeUp 1.4s;">
+    </section>
+    <h2>Hola, soy Izan, Desarrollador Web y entusiasta de Linux</h2>
+    <p>Creo proyectos con Docker, servidores Linux y aplicaciones web modernas.</p>
+
+
+    <div class="social-links">
+        <a href="#">Instagram</a>
+        <a href="#">GitHub</a>
+        <a href="#">LinkedIn</a>
+        <a href="#">Twitter</a>
+    </div>
+
+
+    <a href="#proyectos" class="btn-proyectos">Ver Proyectos</a>
     </section>
 
-    <footer>
-      <p>© 2025 Izan - Todos los derechos reservados</p>
-    </footer>
-  </body>
+
+    <section id="proyectos" class="contenido" style="padding:60px;">
+        <h2 style="text-align:center;margin-bottom:40px;">Mis Proyectos</h2>
+        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:30px;">
+            <div class="card">
+                <h3>Proyecto 1</h3>
+                <p>Descripción breve…</p>
+            </div>
+            <div class="card">
+                <h3>Proyecto 2</h3>
+                <p>Descripción breve…</p>
+            </div>
+            <div class="card">
+                <h3>Proyecto 3</h3>
+                <p>Descripción breve…</p>
+            </div>
+            <div class="card">
+                <h3>Proyecto 4</h3>
+                <p>Descripción breve…</p>
+            </div>
+        </div>
+
 </html>
