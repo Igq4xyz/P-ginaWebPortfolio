@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
-    <header>
+    <header style="position: relative; text-align: center;">
       <h1>Mi Portafolio</h1>
       <nav>
         <ul>
@@ -26,9 +26,168 @@
       </nav>
     </header>
 
-    <section class="contenido">
-      <h2>Proyecto 5</h2>
-      <p>Descripción detallada del proyecto 1...</p>
+    <section class="contenido" style="padding: 40px; position: relative; max-width: 800px; margin: auto; text-align: center;">
+      <h1>AdGuard</h1><br>
+      
+      <h3>Actualización técnica de mi proyecto de infraestructura con Raspberry Pi 4 y Docker</h3><br>
+      
+      <p>
+        Durante las últimas semanas he estado trabajando en la modernización y reorganización de mi entorno doméstico basado en una Raspberry Pi 4.
+         El objetivo principal del proyecto era conseguir un sistema más modular, limpio y fácil de mantener, 
+         reduciendo la dependencia de scripts manuales y migrando los servicios a Docker para mejorar la portabilidad y la gestión.
+      </p>
+
+      <h3>Migración de servicios a Docker</h3>
+
+      <p>
+        El primer paso fue trasladar diversos servicios que anteriormente 
+        se ejecutaban directamente sobre el sistema operativo hacia contenedores. 
+        Entre ellos:
+      </p>
+
+      <ul>
+        <li>Jupyter Notebook, que utilizo para pruebas, análisis y prototipado.</li>
+        <li>Nextcloud, para almacenamiento y sincronización de archivos.</li>
+      </ul>
+      
+      <p>
+        Esta migración me permitió aislar cada servicio, mantener el sistema 
+        operativo más limpio y facilitar su actualización o despliegue en caso de 
+        reinstalación o cambio de equipo.
+      </p>
+      
+      <h3>Implementación de AdGuard Home</h3>
+      <p>
+        Uno de los servicios más importantes que implementé fue AdGuard Home, 
+        con el objetivo de centralizar la resolución DNS de toda mi red y 
+        añadir un sistema de filtrado y bloqueo de publicidad a nivel local.
+      </p>
+      
+      <p>
+        Para ello preparé un archivo docker-compose.yml que:
+      </p>
+      
+      <ul>
+      
+        <li>Descarga la imagen oficial de AdGuard Home.</li>
+        <li>Monta los volúmenes de configuración y datos.</li>
+        <li>Expone los puertos necesarios:</li>
+      
+        <ul>
+          <li>53/UDP y TCP, este es el puerto del Servidor DNS.</li>
+          <li>3000/TCP este puerto se usa para interfaz web inicial y de configuración.</li>
+        </ul>
+      
+      </ul>
+      
+      <p>
+        Una vez desplegado, el contenedor funcionaba correctamente y la interfaz web era accesible, 
+        pero detecté un comportamiento anómalo: los dispositivos de mi red no estaban resolviendo DNS 
+        a través de AdGuard, aunque la interfaz sí estaba operativa.
+      </p>
+      
+      <h3>Diagnóstico del conflicto con systemd-resolved</h3>
+      
+      <p>
+        El problema estaba en el puerto 53, que aparecía ocupado por el servicio systemd-resolved, 
+        nativo de Ubuntu. Para identificarlo utilicé herramientas como:
+      </p>
+      
+      <ul>
+      
+        <li>sudo lsof -i :53</li>
+        <li>sudo ss -tulpn | grep 53</li>
+      
+      </ul>
+      
+      <p>
+        Ambas mostraban que el puerto estaba siendo utilizado por el servicio DNS interno del sistema.
+      </p>
+      
+      <p>
+        Esto impedía que Docker asignara correctamente el puerto 53 al contenedor de AdGuard Home, provocando 
+        que la interfaz web funcionara, pero el servidor DNS no estuviera activo a nivel de red.
+      </p>
+      
+      <h4>Solución: Deshabilitación de systemd-resolved</h4>
+      
+      <ol>
+      
+        <li>Desactivar systemd-resolved:</li>
+      
+        <ul>
+      
+          <li>sudo systemctl stop systemd-resolved</li>
+          <li>sudo systemctl disable systemd-resolved</li>
+      
+        </ul>
+      
+        <li>Eliminar el enlace simbólico del archivo resolv.conf:</li>
+      
+        <ul>
+      
+          <li>sudo rm /etc/resolv.conf</li>
+      
+        </ul>
+      
+        <li>Crear un nuevo archivo resolv.conf con servidores DNS apuntando a AdGuard:</li>
+      
+        <ul>
+      
+          <li>echo "nameserver 127.0.0.1" | sudo tee /etc/resolv.conf</li>
+      
+        </ul>
+      
+        <li>Reiniciar el contenedor de AdGuard Home:</li>
+      
+        <ul>
+      
+          <li>docker-compose down && docker-compose up -d</li>
+      
+        </ul>
+      
+      </ol>
+      
+      <p>
+      
+        Tras esto, AdGuard Home comenzó a funcionar como DNS principal de la Raspberry 
+        Pi y ya podía gestionar las solicitudes del resto de dispositivos de la red.
+      
+      </p>
+      
+      <h3>Pruebas avanzadas y validaciones</h3>
+      
+      <p>
+        Durante una semana realicé distintas pruebas:
+      </p>
+      
+      <ul>
+      
+        <li>Configuración manual del DNS en varios dispositivos (Android, Linux, Windows).</li>
+        <li>Pruebas de bloqueo de dominios.</li>
+        <li>Validaciones de rendimiento y latencia.</li>
+        <li>Ajuste de listas de filtros y listas blancas.</li>
+        <li>Supervisión de logs y estadísticas de resolución.</li>
+      
+      </ul>
+      
+      <p>
+        El resultado fue estable y consistente, demostrando que el servicio podía sustituir perfectamente al DNS tradicional.
+      </p>
+      
+      <h3>Automatización del encendido y apagado</h3>
+      
+      <p>
+        Para optimizar energía y prolongar la vida útil del hardware, programé el encendido y apagado del sistema de la siguiente forma:
+      </p>
+      
+      <ul>
+      
+        <li>Encendido físico: mediante un enchufe inteligente configurado para alimentar la Raspberry Pi a las 06:00.</li>
+        <li>Apagado seguro del sistema: utilizando crontab -e para ejecutar un apagado ordenado a las 23:00.</li>
+        <li>Apagado físico: el enchufe inteligente corta la alimentación unos minutos más tarde para asegurar que el sistema ya se apagó correctamente.</li>
+      
+      </ul>
     </section>
 
     <footer>

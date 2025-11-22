@@ -183,3 +183,12 @@ body {
 .light-mode .moon {
   display: none;
 }
+
+.instagram {
+  background-image: url("icons/instagram-blanco.svg");
+}
+ul, ol {
+    margin-left: 0;
+    padding-left: 20px;  /* Ajusta si quieres más o menos separación */
+    list-style-position: inside; /* Hace que el punto se pegue al texto */
+}
