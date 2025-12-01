@@ -89,6 +89,11 @@ body {
 }
 .contenido {
   flex: 1;
+  padding: 40px;
+  position: relative;
+  max-width: 800px;
+  margin: auto;
+  text-align: center;
 }
 
 /* Mostrar menú siempre debajo en ordenador */

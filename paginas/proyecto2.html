@@ -27,8 +27,38 @@
     </header>
 
     <section class="contenido">
-      <h2>Proyecto 2</h2>
-      <p>Descripción detallada del proyecto 1...</p>
+      <h2>Bot Telegram con IA</h2>
+      <p>Implementación de un asistente de IA local mediante Ollama, Python y Telegram Bot</p>
+      
+      <p>Tras encontrar las limitaciones del uso gratuito de modelos de IA en la nube, decidí investigar alternativas que me permitieran disponer de un asistente de inteligencia artificial totalmente local, sin restricciones y ejecutado con mis propios recursos.
+      Esta búsqueda me llevó a Ollama, una herramienta gratuita que permite descargar y ejecutar modelos de lenguaje de gran tamaño offline, tanto en Windows como en Linux.</p>
+
+      <h3>1. Configuración del entorno y descarga del modelo</h3>
+      <p>Tras instalar Ollama en mi equipo, comencé a trabajar con su interfaz de comandos en PowerShell, además de probar la interfaz gráfica incluida.
+      Para determinar qué modelo se ajustaba mejor al hardware de mi equipo, consulté recomendaciones y validé compatibilidad (VRAM, RAM y rendimiento esperado). Posteriormente descargué el modelo apropiado mediante:</p>
+      <code>ollama pull &lt;modelo&gt;</code>
+
+      <h3>2. Desarrollo del asistente personalizado con Python</h3>
+      <p>Para extender el uso del modelo y convertirlo en un asistente real, creé un script en Python que actuaba como capa intermedia entre el usuario y Ollama. En este script definí:</p>
+      <ul>
+        <li>Comportamiento del asistente</li>
+        <li>Formato de las respuestas</li>
+        <li>Lenguaje predeterminado (castellano)</li>
+        <li>Manejo de errores y respuestas fallback</li>
+        <li>Persistencia mínima del contexto</li>
+      </ul>
+      <p>La comunicación con Ollama se gestionó mediante requests hacia su servidor local.</p>
+
+      <h3>3. Integración con Telegram Bot</h3>
+      <p>Como siguiente paso, integré el asistente con Telegram, permitiendo usarlo desde cualquier dispositivo móvil. El flujo de trabajo fue:</p>
+      <ul>
+        <li>Creación de un bot con BotFather</li>
+        <li>Obtención del token de API</li>
+        <li>Implementación de un servicio en Python que recibe mensajes desde Telegram, los envía al modelo local de Ollama y devuelve la respuesta generada</li>
+      </ul>
+      <p>Asimismo, programé respuestas por defecto para casos como falta de contexto, respuestas ambiguas y saludos iniciales, garantizando una interacción más natural.</p>
+
+      <p>Este proyecto me permitió entender a fondo cómo funcionan los modelos de IA locales, cómo exponerlos a través de APIs y cómo integrarlos con servicios externos como Telegram, creando un asistente completamente autónomo, privado y ejecutado con mis propios recursos.</p>
     </section>
 
     <footer>

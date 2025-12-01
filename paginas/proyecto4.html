@@ -27,8 +27,24 @@
     </header>
 
     <section class="contenido">
-      <h2>Proyecto 4</h2>
-      <p>Descripción detallada del proyecto 1...</p>
+      <h2>Proyecto 4: Configuración avanzada de red y servicios en Raspberry Pi 4</h2>
+      
+      <h3>Descripción General</h3>
+      <p>Durante las últimas semanas he estado realizando la configuración y optimización de una Raspberry Pi 4 (4 GB RAM) utilizando Ubuntu Server 24.04 como sistema base. Este sistema operativo ofrece un entorno estable y familiar a nivel de estructura de archivos y configuración, lo que facilita la gestión y automatización de servicios.</p>
+
+      <h3>Implementación de doble interfaz de red y resolución de conflictos</h3>
+      <p>Uno de los objetivos principales del proyecto era habilitar una segunda interfaz de red además de la integrada en la Raspberry Pi. Sin embargo, durante la configuración inicial de Netplan, surgió un error persistente:</p>
+      <code>brcmfmac brcmf_set_channel set chanspec</code>
+      <p>La solución consistió en instalar el paquete iproute2 y definir manualmente nuevas tablas de enrutamiento personalizadas en <code>/etc/iproute2/rt_tables</code>, añadiendo al final del archivo:<br>
+      60 60<br>
+      61 61<br>
+      Tras aplicar estos cambios, Netplan dejó de producir errores y ambas interfaces funcionaron correctamente.</p>
+
+      <h3>Despliegue de Jupyter Server</h3>
+      <p>Una vez estabilizada la conexión, configuré Jupyter Server como entorno web interactivo para ejecutar código, tomar notas técnicas y almacenar scripts de automatización. El acceso se realiza mediante token o contraseña, consultable con: <code>cat /home/igq/.jupyter/jupyter_server_config.json</code></p>
+
+      <h3>Migración de Nextcloud a almacenamiento externo</h3>
+      <p>Como parte de la transición hacia un entorno más autosuficiente, incorporé un dispositivo de almacenamiento externo temporal para proceder a la migración de Nextcloud desde Docker a la Raspberry Pi, mejorando la estabilidad del servicio.</p>
     </section>
 
     <footer>
