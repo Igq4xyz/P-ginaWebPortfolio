@@ -12,37 +12,28 @@
         <nav>
             <ul style="display:inline-block; margin:0; padding:0; list-style:none; position:relative;">
                 <li><a href="../index.html">Inicio</a></li>
-
-                <!-- dropdown posicionado a la izquierda de la página -->
-                <li class="dropdown" style="position:absolute; left:850px; transform:translateX(-50%);">
-                    <a href="#">Proyectos</a>
-                    <ul class="dropdown-menu" style="margin:8px 0 0 0; padding:6px 10px; list-style:none; background:transparent;">
-                        <li><a href="proyecto1.html">Nube Privada</a></li>
-                        <li><a href="proyecto2.html">Bot telegram con IA</a></li>
-                        <li><a href="proyecto3.html">Página Web</a></li>
-                        <li><a href="proyecto4.html">Jupyter + problemas de red</a></li>
-                        <li><a href="proyecto5.html">AdGuard</a></li>
-                    </ul>
-                </li>
             </ul>
         </nav>
     </header>
 
     <section class="contenido">
         <h2>Proyecto 6</h2>
-        <p>Implementación de VaultWarden en Raspberry Pi con Docker, dominio y reverse proxy</p>
+        <p>Implementación de VaultWarden en el servidor con Docker, dominio y servidor proxy</p>
 
         <h3>Descripción</h3>
-        <p>He desplegado VaultWarden en una Raspberry Pi como solución de gestión de contraseñas autoservida. El proyecto
+        <p>He lanzado VaultWarden en una Raspberry Pi como solución de gestión de contraseñas privadas y alojadas sin depender de plataformas externas. El proyecto
             está basado en la implementación mantenida por Dani García y está optimizado para arquitecturas ARM.</p>
 
         <h3>Requisitos previos</h3>
         <h4>Dominio o subdominio dinámico</h4>
-        <p>Para este despliegue utilicé DuckDNS como proveedor DDNS, creando un subdominio para asociarlo al servicio.</p>
+        <p>Para este proyecto utilicé DuckDNS como proveedor DNS, creando un subdominio para asociarlo al servicio.</p>
+        <p> A parte de esto me asegur'e de los puertos libres de mi servidor y de ver como funcionaba este proyecto leyendo la documentación oficial.</p>
+        <a href="https://bitwarden.com/help/managing-items/">Documentación oficial de Bitwarden para auto almacenamiento</a>
 
         <h4>Reverse Proxy</h4>
-        <p>VaultWarden requiere HTTPS para garantizar la transmisión cifrada de datos. Para ello implementé un reverse proxy
-            mediante Nginx Proxy Manager (NPM) ejecutado en Docker. Este proxy gestiona automáticamente certificados SSL con
+        <p>VaultWarden requiere HTTPS que en comparacion con HTTP este garantiza la transmisión cifrada de datos.Pero no tenia ningun certificado ni tampoco sabia como hacerlo. 
+            Para ello implementé un proxy
+            mediante Nginx Proxy Manager ejecutado en Docker. Este proxy gestiona automáticamente certificados SSL con
             Let's Encrypt y permite publicar el servicio de forma segura.</p>
 
         <h3>Despliegue</h3>
@@ -60,10 +51,12 @@
         <p>VaultWarden se ejecuta de forma estable en la Raspberry Pi, protegido mediante cifrado TLS y accesible a través
             de un dominio externo. El sistema proporciona una solución local, segura y autosuficiente para la gestión de
             contraseñas sin depender de plataformas externas.</p>
+        <p> A parte tengo copias de seguridad de los datos semanalmente, una completa y otra incremental para que los nuevos datos se vayan agregando a los datos anteriores.</p>
     </section>
 
     <footer>
-      <p>© 2025 Izan - Todos los derechos reservados</p>
+      <p>© 2025 Izan - Todo ha sido creado por mi</p>
     </footer>
+
   </body>
 </html>
