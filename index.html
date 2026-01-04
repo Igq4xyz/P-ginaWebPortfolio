@@ -1,51 +1,81 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Página en Construcción</title>
-    <style>
-        body {
-            margin: 0;
-            padding: 0;
-            background-color: #000000;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            font-family: Arial, sans-serif;
-        }
-        
-        .container {
-            text-align: center;
-        }
-        
-        .container h1 {
-            color: #ffffff;
-            font-size: 50px;
-            margin-bottom: 30px;
-        }
-        
-        .container a {
-            display: inline-block;
-            padding: 30px 30px;
-            background-color: #0066cc;
-            color: #ffffff;
-            text-decoration: none;
-            border-radius: 5px;
-            font-size: 25px;
-            transition: background-color 0.3s;
-        }
-        
-        .container a:hover {
-            background-color: #0052a3;
-        }
-    </style>
+    <title>Portafolio - Izan</title>
+    <link rel="stylesheet" href="paginas/style.css">
 </head>
+
 <body>
-    <div class="container">
-        <h1>Página web en construcción, para ver el proceso, clicka aquí</h1>
-        <a href="inicio.html">Ir a Inicio</a>
-    </div>
+
+    <header style="display:flex;align-items:center;justify-content:space-between;padding:80px;">
+        <h1>Mi Portafolio</h1>
+    </header>
+
+
+    <section class="hero" style="display:flex;align-items:center;justify-content:space-between;padding:80px;">
+        <div>
+            <h2 style="font-size:40px;margin:0;animation:fade 1s;">Hola, soy Izan, un apasionado de la informática, con un Grado Medio de momento y entusiasta de
+                aprender cosas nuevas.</h2>
+            <p style="opacity:0.8;animation:fade 1.4s; padding-right: 10px;">Soy Izan, un chaval de 17 años con muchas ganas de aprender y crecer en el mundo de la informática.
+                Actualmente estoy estudiando un Grado Medio de Técnico de SMR y me apasiona todo lo que se puede llegar a hacer con un solo ordenador. 
+                Por esta razón, he creado algunos de mis proyectos, para aprender y conocer sobre este mundo.
+            </p>
+            <p style="opacity:0.8;animation:fade 1.4s;"></p>
+
+
+            <div class="social" style="display:flex;gap:15px;margin:25px 0;animation:fade 1.6s;">
+                <a href="https://www.instagram.com/igq4xyz/?hl=en"><img src="icons/instagram-blanco.svg" width="28"></a>
+                <a href="https://github.com/Igq4xyz"><img src="icons/github-blanco.svg" width="28"></a>
+                <a href="https://www.linkedin.com/in/izan-gomis-107022368"><img src="icons/linkedin-blanco.svg" width="28"></a>
+                <a href="https://x.com/igq8sinmas"><img src="icons/x-blanco.svg" width="28"></a>
+                <a href="#"><img src="icons/fedora-blanco.svg" width="28"></a>
+            </div>
+        </div>
+
+
+        <img src="imagenes/Imagen-mia.jpeg" width="280"
+            style="border-radius:15px;filter:drop-shadow(0 0 20px #000);animation:fadeUp 1.4s;">
+    </section>
+
+
+
+    <section id="proyectos" class="contenido" style="padding:60px;">
+        <h2 style="text-align:center;margin-bottom:40px;">Algunos de mis proyectos</h2>
+        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:30px;">
+            <div class="card">
+                <h3>Nube Privada</h3>
+                <p>Como configuré una nube privada y local para almacenar y acceder a mis archivos de manera segura y privada.</p>
+                <a href="paginas/proyecto1.html" class="btn-proyectos">Ver Proyectos</a>
+            </div>
+            <div class="card">
+                <h3>Bot telegram con IA</h3>
+                <p>Como hice un bot de Telegram utilizando inteligencia artificial para usarlo como un Chat GPT local, lanzado desde mi ordenador.</p>
+                <a href="paginas/proyecto2.html" class="btn-proyectos">Ver Proyectos</a>
+            </div>
+            <div class="card">
+                <h3>Página Web</h3>
+                <p>Como programé una página web con Css y HTML para una empresa local.</p>
+                <a href="paginas/proyecto3.html" class="btn-proyectos">Ver Proyectos</a>
+            </div>
+            <div class="card">
+                <h3>Jupyter + problemas de red</h3>
+                <p>Instalación y configuración de Jupyter Notebook, incluyendo solución de problemas de red de la propia Raspberry Pi.</p>
+                <a href="paginas/proyecto4.html" class="btn-proyectos">Ver Proyectos</a>
+            </div>
+            <div class="card">
+                <h3>AdGuard</h3>
+                <p>Instalación de AdGuard Home en una Raspberry Pi para bloquear anuncios y rastreadores a nivel de red local.</p>
+                <a href="paginas/proyecto5.html" class="btn-proyectos">Ver Proyectos</a>
+            </div>
+            <div class="card">
+                <h3>VaultWarden</h3>
+                <p>Instalación de VaultWarden en una Raspberry Pi para gestionar contraseñas de forma autohospedada y segura con servidor proxy.</p>
+                <a href="paginas/proyecto6.html" class="btn-proyectos">Ver Proyectos</a>
+            </div>
+        </div>
+    <script src="paginas/java.js"></script>
 </body>
 </html>

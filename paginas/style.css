@@ -87,14 +87,7 @@ body {
   display: flex;
   flex-direction: column;
 }
-.contenido {
-  flex: 1;
-  padding: 40px;
-  position: relative;
-  max-width: 800px;
-  margin: auto;
-  text-align: center;
-}
+
 
 /* Mostrar menú siempre debajo en ordenador */
 .dropdown-menu {
@@ -194,6 +187,6 @@ body {
 }
 ul, ol {
     margin-left: 0;
-    padding-left: 20px;  /* Ajusta si quieres más o menos separación */
-    list-style-position: inside; /* Hace que el punto se pegue al texto */
+    padding-left: 20px;
+    list-style-position: inside;
 }

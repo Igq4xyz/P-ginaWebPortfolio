@@ -1,40 +1,158 @@
 <!DOCTYPE html>
 <html lang="es">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Página Web</title>
-    <link rel="stylesheet" href="style.css" />
-  </head>
-  <body>
-    <header>
-      <h1>Mi Portafolio</h1>
-      <nav>
-        <ul>
-          <li><a href="../index.html">Inicio</a></li>
-          <li class="dropdown">
-            <a href="#">Proyectos</a>
-            <ul class="dropdown-menu">
-              <li><a href="proyecto1.html">Nube Privada</a></li>
-              <li><a href="proyecto2.html">Bot telegram con IA</a></li>
-              <li><a href="proyecto4.html">Jupyter + problemas de red</a></li>
-              <li><a href="proyecto5.html">AdGuard</a></li>
-              <li><a href="proyecto6.html">VaultWarden</a></li>
-            </ul>
-          </li>
-        </ul>
-      </nav>
-    </header>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Proyecto 3 · Página Web</title>
 
-    <section class="contenido">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --bg: #000000;
+      --text: #ffffff;
+      --muted: #ffffff;
+      --border: #ffffff;
+      --accent: #2563eb;
+      --card: #18181b;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.7;
+    }
+
+    a {
+      color: var(--accent);
+      text-decoration: none;
+      font-weight: 500;
+    }
+
+    a:hover { text-decoration: underline; }
+
+    header {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 3rem 1.5rem 2rem;
+      text-align: center;
+    }
+
+    header h1 {
+      font-size: 2.8rem;
+      font-weight: 700;
+      letter-spacing: -0.04em;
+    }
+
+    nav ul {
+      list-style: none;
+      display: inline-flex;
+      gap: 1.5rem;
+      margin-top: 1rem;
+    }
+
+    main {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 0 1.5rem 4rem;
+    }
+
+    .intro {
+      margin-bottom: 3rem;
+    }
+
+    .intro h2 {
+      font-size: 2rem;
+      font-weight: 600;
+      margin-bottom: 0.5rem;
+    }
+
+    .intro p {
+      color: var(--muted);
+      font-size: 1.05rem;
+    }
+
+    section { margin-bottom: 2.5rem; }
+
+    .card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 1.75rem;
+    }
+
+    section h3 {
+      font-size: 1.4rem;
+      font-weight: 600;
+      margin-bottom: 0.75rem;
+    }
+
+    section h4 {
+      font-size: 1.05rem;
+      font-weight: 600;
+      margin-top: 1.2rem;
+      margin-bottom: 0.5rem;
+    }
+
+    ul { margin: 0.75rem 0 0.75rem 1.2rem; }
+
+    ul li { margin-bottom: 0.4rem; }
+
+    footer {
+      border-top: 1px solid var(--border);
+      padding: 2rem 1.5rem;
+      text-align: center;
+      color: var(--muted);
+      font-size: 0.9rem;
+    }
+
+    @media (max-width: 600px) {
+      header h1 { font-size: 2.2rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>Mi Portafolio</h1>
+    <nav>
+      <ul>
+        <li><a href="../index.html">Inicio</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+
+    <div class="intro">
       <h2>Proyecto 3: Lavandería Osel</h2>
       <p>Desarrollo y despliegue de sitio web corporativo</p>
-      
-      <h3>Descripción del Proyecto</h3>
-      <p>A los 16 años completé el diseño, desarrollo y despliegue de una página web corporativa funcional para un negocio local. Durante el verano, una empresa de mi ciudad contactó conmigo para crear una plataforma profesional que presentara su actividad, servicios y datos de contacto de manera clara y accesible.</p>
-      <p>El proyecto, publicado en <strong>lavanderiaosel.es</strong>, se llevó a cabo en aproximadamente 2–3 semanas.</p>
+    </div>
 
+    <section class="card">
+      <h3>Descripción del Proyecto</h3>
+      <p>
+        A los 16 años completé el diseño, desarrollo y despliegue de una página web corporativa funcional para un negocio local.
+        Durante el verano, una empresa de mi ciudad contactó conmigo para crear una plataforma profesional que presentara su actividad,
+        servicios y datos de contacto de manera clara y accesible.
+      </p>
+      <p>
+        El proyecto, publicado en <strong>lavanderiaosel.es</strong>, se llevó a cabo en aproximadamente 2–3 semanas.
+      </p>
+    </section>
+
+    <section class="card">
       <h3>Fases del Proyecto</h3>
+
       <h4>1. Análisis y Toma de Requisitos</h4>
       <ul>
         <li>Revisión del local y flujo de trabajo del negocio</li>
@@ -60,12 +178,20 @@
         <li>Configuración de dominio y servidor</li>
         <li>Pruebas de rendimiento y compatibilidad</li>
       </ul>
-
-      <p><strong>Este proyecto marca mi transición hacia proyectos profesionales reales, demostrando capacidad para asumir proyectos completos de principio a fin.</strong></p>
     </section>
 
-    <footer>
-      <p>© 2025 Izan - Todos los derechos reservados</p>
-    </footer>
-  </body>
+    <section class="card">
+      <p>
+        <strong>Este proyecto marca mi transición hacia proyectos profesionales reales, demostrando capacidad para asumir
+        proyectos completos de principio a fin.</strong>
+      </p>
+    </section>
+
+  </main>
+
+  <footer>
+    <p>2025 Izan · Todo ha sido creado por mí con una pequeña ayuda de ChatGPT</p>
+  </footer>
+
+</body>
 </html>

@@ -1,61 +1,209 @@
 <!DOCTYPE html>
 <html lang="es">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Nube Privada</title>
-    <link rel="stylesheet" href="style.css" />
-  </head>
-  <body>
-    <header>
-      <h1>Mi Portafolio</h1>
-      <nav>
-        <ul>
-          <li><a href="../index.html">Inicio</a></li>
-          <li class="dropdown">
-            <a href="#">Proyectos</a>
-            <ul class="dropdown-menu">
-              <li><a href="proyecto2.html">Bot telegram con IA</a></li>
-              <li><a href="proyecto3.html">Página Web</a></li>
-              <li><a href="proyecto4.html">Jupyter + problemas de red</a></li>
-              <li><a href="proyecto5.html">AdGuard</a></li>
-              <li><a href="proyecto6.html">VaultWarden</a></li>
-            </ul>
-          </li>
-        </ul>
-      </nav>
-    </header>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Nube Privada</title>
 
-    <section class="contenido">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --bg: #000000;
+      --text: #ffffff;
+      --muted: #64748b;
+      --border: #ffffff;
+      --accent: #2563eb;
+      --card: #18181b;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      background-color: #0000;
+      font-family: 'Inter', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.7;
+    }
+
+    a {
+      color: var(--accent);
+      text-decoration: none;
+      font-weight: 500;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+
+    header {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 3rem 1.5rem 2rem;
+      text-align: center;
+    }
+
+    header h1 {
+      font-size: 2.8rem;
+      font-weight: 700;
+      letter-spacing: -0.04em;
+      margin-bottom: 0.5rem;
+    }
+
+    nav ul {
+      list-style: none;
+      display: inline-flex;
+      gap: 1.5rem;
+      margin-top: 1rem;
+    }
+
+    main {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 0 1.5rem 4rem;
+    }
+
+    .intro {
+      margin-bottom: 3rem;
+    }
+
+    .intro h2 {
+      font-size: 2rem;
+      font-weight: 600;
+      margin-bottom: 0.5rem;
+    }
+
+    .intro p {
+      font-size: 1.05rem;
+    }
+
+    section {
+      margin-bottom: 3rem;
+    }
+
+    section h3 {
+      font-size: 1.4rem;
+      font-weight: 600;
+      margin-bottom: 0.75rem;
+    }
+
+    section h4 {
+      font-size: 1.05rem;
+      font-weight: 600;
+      margin-top: 1.5rem;
+      margin-bottom: 0.5rem;
+      color: var(--accent);
+    }
+
+    section p {
+      color: var(--text);
+      margin-bottom: 0.75rem;
+    }
+
+    .card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 1.75rem;
+    }
+
+    ul {
+      margin: 1rem 0 1rem 1.2rem;
+    }
+
+    ul li {
+      margin-bottom: 0.4rem;
+      color: var(--text);
+    }
+
+    code {
+      background: #1a1a1a;
+      padding: 0.2rem 0.4rem;
+      border-radius: 4px;
+      font-size: 0.9rem;
+    }
+
+    footer {
+      border-top: 1px solid var(--border);
+      padding: 2rem 1.5rem;
+      text-align: center;
+      color: var(--muted);
+      font-size: 0.9rem;
+    }
+
+    @media (max-width: 600px) {
+      header h1 {
+        font-size: 2.2rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>Mi Portafolio</h1>
+    <nav>
+      <ul>
+        <li><a href="../index.html">Inicio</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+
+    <div class="intro">
       <h2>Nube Privada</h2>
-      <h3>Implementación de una nube privada doméstica con Nextcloud y Docker</h3>
-      
+      <p>Implementación de una nube privada doméstica con Nextcloud y Docker</p>
+    </div>
+
+    <section class="card">
+      <h3>Descripción</h3>
       <p>Recientemente desarrollé un proyecto personal con el objetivo de crear una nube privada accesible desde los dispositivos de mi familia, permitiendo almacenar fotografías, documentos y otros archivos dentro de nuestra red local.</p>
+    </section>
 
-      <h4>1. Instalación inicial en Ubuntu Server</h4>
+    <section class="card">
+      <h3>Instalación inicial en Ubuntu Server</h3>
       <p>Comencé desplegando Nextcloud en una máquina con Ubuntu Server, configurando manualmente el entorno y verificando que el servicio funcionaba correctamente. Sin embargo, el sistema operativo junto con la instalación completa de Nextcloud utilizaba más de 7 GB de almacenamiento, lo cual me parecía un consumo innecesariamente elevado para este tipo de proyecto.</p>
+    </section>
 
-      <h4>2. Migración a contenedores con Docker</h4>
+    <section class="card">
+      <h3>Migración a contenedores con Docker</h3>
       <p>Para optimizar recursos y facilitar futuras actualizaciones, decidí realizar la instalación mediante Docker. Tras investigar la documentación oficial y varios repositorios, ejecuté la instalación con:</p>
       <ul>
         <li>Contenedor principal de Nextcloud</li>
         <li>Backend de base de datos</li>
         <li>Volúmenes persistentes para datos y configuración</li>
       </ul>
-      <p>Una vez desplegado, accedí localmente a http://localhost:8080 y comprobé que el servicio respondía correctamente.</p>
+      <p>Una vez desplegado, accedí localmente a <code>http://localhost:8080</code> y comprobé que el servicio respondía correctamente.</p>
+    </section>
 
-      <h4>3. Configuración de acceso desde dispositivos móviles</h4>
+    <section class="card">
+      <h3>Configuración de acceso desde dispositivos móviles</h3>
       <p>Durante las pruebas, detecté que algunos móviles marcaban el dominio interno como "sospechoso", impidiendo el acceso. Para resolverlo entré al contenedor con:</p>
       <code>docker exec -it &lt;container_name&gt; bash</code>
       <p>Modifiqué el archivo de configuración <code>/config/config.php</code> y añadí el hostname del equipo y una IP estática dentro de la red local: <code>192.168.1.240</code></p>
       <p>Con esta configuración, el acceso desde cualquier dispositivo de la red fue inmediato.</p>
+    </section>
 
-      <h4>4. Pruebas de acceso y validación</h4>
+    <section class="card">
+      <h3>Pruebas de acceso y validación</h3>
       <p>Pedí a mi padre que accediera desde su móvil mediante <code>http://192.168.1.240:8080</code> usando las credenciales que había creado previamente. La conexión funcionó sin incidencias y su reacción fue tan positiva que me propuso ampliar el sistema con un disco duro de 1 TB para aumentar la capacidad de almacenamiento. Esta será la siguiente fase del proyecto.</p>
     </section>
 
-    <footer>
-      <p>© 2025 Izan - Todos los derechos reservados</p>
-    </footer>
-  </body>
+  </main>
+
+  <footer>
+    <p>2025 Izan · Todo ha sido creado por mí con una poca ayuda de distribucion de Chat GPT</p>
+  </footer>
+
+</body>
 </html>
+
+

@@ -1,45 +1,186 @@
 <!DOCTYPE html>
 <html lang="es">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Bot telegram con IA</title>
-    <link rel="stylesheet" href="style.css" />
-  </head>
-  <body>
-    <header>
-      <h1>Mi Portafolio</h1>
-      <nav>
-        <ul>
-          <li><a href="../index.html">Inicio</a></li>
-          <li class="dropdown">
-            <a href="#">Proyectos</a>
-            <ul class="dropdown-menu">
-              <li><a href="proyecto1.html">Nube Privada</a></li>
-              <li><a href="proyecto3.html">Página Web</a></li>
-              <li><a href="proyecto4.html">Jupyter + problemas de red</a></li>
-              <li><a href="proyecto5.html">AdGuard</a></li>
-              <li><a href="proyecto6.html">VaultWarden</a></li>
-            </ul>
-          </li>
-        </ul>
-      </nav>
-    </header>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Bot Telegram con IA · Portafolio</title>
 
-    <section class="contenido">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --bg: #000000;
+      --text: #ffffff;
+      --muted: #ffffff;
+      --border: #ffffff;
+      --accent: #2563eb;
+      --card: #18181b;
+      --code-bg: #2a2a2b;
+      --code-text: #ffffff;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.7;
+    }
+
+    a {
+      color: var(--accent);
+      text-decoration: none;
+      font-weight: 500;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+
+    header {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 3rem 1.5rem 2rem;
+      text-align: center;
+    }
+
+    header h1 {
+      font-size: 2.8rem;
+      font-weight: 700;
+      letter-spacing: -0.04em;
+    }
+
+    nav ul {
+      list-style: none;
+      display: inline-flex;
+      gap: 1.5rem;
+      margin-top: 1rem;
+    }
+
+    main {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 0 1.5rem 4rem;
+    }
+
+    .intro {
+      margin-bottom: 3rem;
+    }
+
+    .intro h2 {
+      font-size: 2rem;
+      font-weight: 600;
+      margin-bottom: 0.5rem;
+    }
+
+    .intro p {
+      color: var(--muted);
+      font-size: 1.05rem;
+    }
+
+    section {
+      margin-bottom: 2.5rem;
+    }
+
+    .card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 1.75rem;
+    }
+
+    section h3 {
+      font-size: 1.4rem;
+      font-weight: 600;
+      margin-bottom: 0.75rem;
+    }
+
+    section p {
+      margin-bottom: 0.75rem;
+    }
+
+    ul {
+      margin: 1rem 0 1rem 1.2rem;
+    }
+
+    ul li {
+      margin-bottom: 0.4rem;
+    }
+
+    code {
+      display: block;
+      background: var(--code-bg);
+      color: var(--code-text);
+      padding: 0.75rem 1rem;
+      border-radius: 10px;
+      font-size: 0.9rem;
+      margin-top: 0.5rem;
+      overflow-x: auto;
+    }
+
+    footer {
+      border-top: 1px solid var(--border);
+      padding: 2rem 1.5rem;
+      text-align: center;
+      color: var(--muted);
+      font-size: 0.9rem;
+    }
+
+    @media (max-width: 600px) {
+      header h1 {
+        font-size: 2.2rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>Mi Portafolio</h1>
+    <nav>
+      <ul>
+        <li><a href="../index.html">Inicio</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+
+    <div class="intro">
       <h2>Bot Telegram con IA</h2>
       <p>Implementación de un asistente de IA local mediante Ollama, Python y Telegram Bot</p>
-      
-      <p>Tras encontrar las limitaciones del uso gratuito de modelos de IA en la nube, decidí investigar alternativas que me permitieran disponer de un asistente de inteligencia artificial totalmente local, sin restricciones y ejecutado con mis propios recursos.
-      Esta búsqueda me llevó a Ollama, una herramienta gratuita que permite descargar y ejecutar modelos de lenguaje de gran tamaño offline, tanto en Windows como en Linux.</p>
+    </div>
 
+    <section class="card">
+      <p>
+        Tras encontrar las limitaciones del uso gratuito de modelos de IA en la nube, decidí investigar alternativas que me permitieran disponer de un asistente de inteligencia artificial totalmente local, sin restricciones y ejecutado con mis propios recursos.
+        Esta búsqueda me llevó a Ollama, una herramienta gratuita que permite descargar y ejecutar modelos de lenguaje de gran tamaño offline, tanto en Windows como en Linux.
+      </p>
+    </section>
+
+    <section class="card">
       <h3>1. Configuración del entorno y descarga del modelo</h3>
-      <p>Tras instalar Ollama en mi equipo, comencé a trabajar con su interfaz de comandos en PowerShell, además de probar la interfaz gráfica incluida.
-      Para determinar qué modelo se ajustaba mejor al hardware de mi equipo, consulté recomendaciones y validé compatibilidad (VRAM, RAM y rendimiento esperado). Posteriormente descargué el modelo apropiado mediante:</p>
+      <p>
+        Tras instalar Ollama en mi equipo, comencé a trabajar con su interfaz de comandos en PowerShell, además de probar la interfaz gráfica incluida.
+        Para determinar qué modelo se ajustaba mejor al hardware de mi equipo, consulté recomendaciones y validé compatibilidad (VRAM, RAM y rendimiento esperado).
+      </p>
+      <p>Posteriormente descargué el modelo apropiado mediante:</p>
       <code>ollama pull &lt;modelo&gt;</code>
+    </section>
 
+    <section class="card">
       <h3>2. Desarrollo del asistente personalizado con Python</h3>
-      <p>Para extender el uso del modelo y convertirlo en un asistente real, creé un script en Python que actuaba como capa intermedia entre el usuario y Ollama. En este script definí:</p>
+      <p>
+        Para extender el uso del modelo y convertirlo en un asistente real, creé un script en Python que actuaba como capa intermedia entre el usuario y Ollama.
+        En este script definí:
+      </p>
       <ul>
         <li>Comportamiento del asistente</li>
         <li>Formato de las respuestas</li>
@@ -47,22 +188,38 @@
         <li>Manejo de errores y respuestas fallback</li>
         <li>Persistencia mínima del contexto</li>
       </ul>
-      <p>La comunicación con Ollama se gestionó mediante requests hacia su servidor local.</p>
+      <p>La comunicación con Ollama se gestionó mediante peticiones al servidor local.</p>
+    </section>
 
+    <section class="card">
       <h3>3. Integración con Telegram Bot</h3>
-      <p>Como siguiente paso, integré el asistente con Telegram, permitiendo usarlo desde cualquier dispositivo móvil. El flujo de trabajo fue:</p>
+      <p>
+        Como siguiente paso, integré el asistente con Telegram, permitiendo su uso desde cualquier dispositivo móvil.
+        El flujo de trabajo fue:
+      </p>
       <ul>
         <li>Creación de un bot con BotFather</li>
         <li>Obtención del token de API</li>
-        <li>Implementación de un servicio en Python que recibe mensajes desde Telegram, los envía al modelo local de Ollama y devuelve la respuesta generada</li>
+        <li>Servicio en Python que recibe mensajes, los envía a Ollama y devuelve la respuesta generada</li>
       </ul>
-      <p>Asimismo, programé respuestas por defecto para casos como falta de contexto, respuestas ambiguas y saludos iniciales, garantizando una interacción más natural.</p>
-
-      <p>Este proyecto me permitió entender a fondo cómo funcionan los modelos de IA locales, cómo exponerlos a través de APIs y cómo integrarlos con servicios externos como Telegram, creando un asistente completamente autónomo, privado y ejecutado con mis propios recursos.</p>
+      <p>
+        Asimismo, programé respuestas por defecto para casos como falta de contexto, respuestas ambiguas y saludos iniciales,
+        garantizando una interacción más natural.
+      </p>
     </section>
 
-    <footer>
-      <p>© 2025 Izan - Todos los derechos reservados</p>
-    </footer>
-  </body>
+    <section class="card">
+      <p>
+        Este proyecto me permitió comprender en profundidad el funcionamiento de los modelos de IA locales, cómo exponerlos mediante APIs
+        y cómo integrarlos con servicios externos como Telegram, creando un asistente completamente autónomo, privado y ejecutado con mis propios recursos.
+      </p>
+    </section>
+
+  </main>
+
+  <footer>
+    <p>2025 Izan · Todo ha sido creado por mí con una poca ayuda de distribucion de Chat GPT</p>
+  </footer>
+
+</body>
 </html>

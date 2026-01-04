@@ -1,54 +1,187 @@
 <!DOCTYPE html>
 <html lang="es">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Jupyter + problemas de red</title>
-    <link rel="stylesheet" href="style.css" />
-  </head>
-  <body>
-    <header>
-      <h1>Mi Portafolio</h1>
-      <nav>
-        <ul>
-          <li><a href="../index.html">Inicio</a></li>
-          <li class="dropdown">
-            <a href="#">Proyectos</a>
-            <ul class="dropdown-menu">
-              <li><a href="proyecto1.html">Proyecto 1</a></li>
-              <li><a href="proyecto2.html">Bot telegram con IA</a></li>
-              <li><a href="proyecto3.html">Página Web</a></li>
-              <li><a href="proyecto5.html">AdGuard</a></li>
-              <li><a href="proyecto6.html">VaultWarden</a></li>
-            </ul>
-          </li>
-        </ul>
-      </nav>
-    </header>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Proyecto 4 · Jupyter y red</title>
 
-    <section class="contenido">
-      <h2>Proyecto 4: Configuración avanzada de red y servicios en Raspberry Pi 4</h2>
-      
-      <h3>Descripción General</h3>
-      <p>Durante las últimas semanas he estado realizando la configuración y optimización de una Raspberry Pi 4 (4 GB RAM) utilizando Ubuntu Server 24.04 como sistema base. Este sistema operativo ofrece un entorno estable y familiar a nivel de estructura de archivos y configuración, lo que facilita la gestión y automatización de servicios.</p>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
-      <h3>Implementación de doble interfaz de red y resolución de conflictos</h3>
-      <p>Uno de los objetivos principales del proyecto era habilitar una segunda interfaz de red además de la integrada en la Raspberry Pi. Sin embargo, durante la configuración inicial de Netplan, surgió un error persistente:</p>
-      <code>brcmfmac brcmf_set_channel set chanspec</code>
-      <p>La solución consistió en instalar el paquete iproute2 y definir manualmente nuevas tablas de enrutamiento personalizadas en <code>/etc/iproute2/rt_tables</code>, añadiendo al final del archivo:<br>
-      60 60<br>
-      61 61<br>
-      Tras aplicar estos cambios, Netplan dejó de producir errores y ambas interfaces funcionaron correctamente.</p>
+  <style>
+    :root {
+      --bg: #000000;
+      --text: #ffffff;
+      --muted: #ffffff;
+      --border: #ffffff;
+      --accent: #2563eb;
+      --card: #18181b;
+      --code-bg: #373636;
+      --code-text: #ffffff;
+    }
 
-      <h3>Despliegue de Jupyter Server</h3>
-      <p>Una vez estabilizada la conexión, configuré Jupyter Server como entorno web interactivo para ejecutar código, tomar notas técnicas y almacenar scripts de automatización. El acceso se realiza mediante token o contraseña, consultable con: <code>cat /home/igq/.jupyter/jupyter_server_config.json</code></p>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
 
-      <h3>Migración de Nextcloud a almacenamiento externo</h3>
-      <p>Como parte de la transición hacia un entorno más autosuficiente, incorporé un dispositivo de almacenamiento externo temporal para proceder a la migración de Nextcloud desde Docker a la Raspberry Pi, mejorando la estabilidad del servicio.</p>
+    body {
+      font-family: 'Inter', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.7;
+    }
+
+    a { color: var(--accent); text-decoration: none; font-weight: 500; }
+    a:hover { text-decoration: underline; }
+
+    header {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 3rem 1.5rem 2rem;
+      text-align: center;
+    }
+
+    header h1 {
+      font-size: 2.8rem;
+      font-weight: 700;
+      letter-spacing: -0.04em;
+    }
+
+    nav ul {
+      list-style: none;
+      display: inline-flex;
+      gap: 1.5rem;
+      margin-top: 1rem;
+    }
+
+    main {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 0 1.5rem 4rem;
+    }
+
+    .intro { margin-bottom: 3rem; }
+
+    .intro h2 {
+      font-size: 2rem;
+      font-weight: 600;
+      margin-bottom: 0.5rem;
+    }
+
+    .intro p { color: var(--muted); font-size: 1.05rem; }
+
+    section { margin-bottom: 2.5rem; }
+
+    .card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 1.75rem;
+    }
+
+    section h3 {
+      font-size: 1.4rem;
+      font-weight: 600;
+      margin-bottom: 0.75rem;
+    }
+
+    section p { margin-bottom: 0.75rem; }
+
+    code {
+      display: block;
+      background: var(--code-bg);
+      color: var(--code-text);
+      padding: 0.75rem 1rem;
+      border-radius: 10px;
+      font-size: 0.9rem;
+      margin: 0.5rem 0 0.75rem;
+      overflow-x: auto;
+    }
+
+    footer {
+      border-top: 1px solid var(--border);
+      padding: 2rem 1.5rem;
+      text-align: center;
+      color: var(--muted);
+      font-size: 0.9rem;
+    }
+
+    @media (max-width: 600px) {
+      header h1 { font-size: 2.2rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>Mi Portafolio</h1>
+    <nav>
+      <ul>
+        <li><a href="../index.html">Inicio</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+
+    <div class="intro">
+      <h2>Proyecto 4: Configuración avanzada de red y servicios</h2>
+      <p>Jupyter Server, doble interfaz de red y optimización en Raspberry Pi 4</p>
+    </div>
+
+    <section class="card">
+      <h3>Descripción general</h3>
+      <p>
+        Durante las últimas semanas he realizado la configuración y optimización de una Raspberry Pi 4 (4 GB RAM)
+        utilizando Ubuntu Server 24.04 como sistema base. Este sistema operativo proporciona un entorno estable y
+        familiar que facilita la gestión y automatización de servicios.
+      </p>
     </section>
 
-    <footer>
-      <p>© 2025 Izan - Todos los derechos reservados</p>
-    </footer>
-  </body>
+    <section class="card">
+      <h3>Implementación de doble interfaz de red y resolución de conflictos</h3>
+      <p>
+        Uno de los objetivos principales del proyecto era habilitar una segunda interfaz de red adicional a la integrada
+        en la Raspberry Pi. Durante la configuración inicial de Netplan surgió un error persistente:
+      </p>
+      <code>brcmfmac brcmf_set_channel set chanspec</code>
+      <p>
+        La solución consistió en instalar el paquete <strong>iproute2</strong> y definir manualmente nuevas tablas de
+        enrutamiento personalizadas en <code>/etc/iproute2/rt_tables</code>, añadiendo las siguientes entradas:
+      </p>
+      <code>60 60
+61 61</code>
+      <p>
+        Tras aplicar estos cambios, Netplan dejó de producir errores y ambas interfaces comenzaron a funcionar
+        correctamente.
+      </p>
+    </section>
+
+    <section class="card">
+      <h3>Despliegue de Jupyter Server</h3>
+      <p>
+        Una vez estabilizada la conectividad, configuré Jupyter Server como entorno web interactivo para ejecutar código,
+        tomar notas técnicas y almacenar scripts de automatización.
+      </p>
+      <p>
+        El acceso se realiza mediante token o contraseña, consultable con:
+      </p>
+      <code>cat /home/igq/.jupyter/jupyter_server_config.json</code>
+    </section>
+
+    <section class="card">
+      <h3>Migración de Nextcloud a almacenamiento externo</h3>
+      <p>
+        Como parte de la transición hacia un entorno más autosuficiente, incorporé un dispositivo de almacenamiento
+        externo temporal para proceder a la migración de Nextcloud desde Docker a la Raspberry Pi, mejorando la
+        estabilidad y fiabilidad del servicio.
+      </p>
+    </section>
+
+  </main>
+
+  <footer>
+    <p>2025 Izan · Todo ha sido creado por mí con una pequeña ayuda de ChatGPT</p>
+  </footer>
+
+</body>
 </html>

@@ -1,62 +1,215 @@
 <!DOCTYPE html>
 <html lang="es">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>VaultWarden</title>
-    <link rel="stylesheet" href="style.css" />
-  </head>
-  <body>
-    <header style="text-align:center; position:relative;">
-        <h1>Mi Portafolio</h1>
-        <nav>
-            <ul style="display:inline-block; margin:0; padding:0; list-style:none; position:relative;">
-                <li><a href="../index.html">Inicio</a></li>
-            </ul>
-        </nav>
-    </header>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Proyecto 6 · Portafolio</title>
 
-    <section class="contenido">
-        <h2>Proyecto 6</h2>
-        <p>Implementación de VaultWarden en el servidor con Docker, dominio y servidor proxy</p>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
-        <h3>Descripción</h3>
-        <p>He lanzado VaultWarden en una Raspberry Pi como solución de gestión de contraseñas privadas y alojadas sin depender de plataformas externas. El proyecto
-            está basado en la implementación mantenida por Dani García y está optimizado para arquitecturas ARM.</p>
+  <style>
+    :root {
+      --bg: #000000;
+      --text: #ffffff;
+      --muted: #64748b;
+      --border: #ffffff;
+      --accent: #2563eb;
+      --card: #18181b;
+    }
 
-        <h3>Requisitos previos</h3>
-        <h4>Dominio o subdominio dinámico</h4>
-        <p>Para este proyecto utilicé DuckDNS como proveedor DNS, creando un subdominio para asociarlo al servicio.</p>
-        <p> A parte de esto me asegur'e de los puertos libres de mi servidor y de ver como funcionaba este proyecto leyendo la documentación oficial.</p>
-        <a href="https://bitwarden.com/help/managing-items/">Documentación oficial de Bitwarden para auto almacenamiento</a>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
 
-        <h4>Reverse Proxy</h4>
-        <p>VaultWarden requiere HTTPS que en comparacion con HTTP este garantiza la transmisión cifrada de datos.Pero no tenia ningun certificado ni tampoco sabia como hacerlo. 
-            Para ello implementé un proxy
-            mediante Nginx Proxy Manager ejecutado en Docker. Este proxy gestiona automáticamente certificados SSL con
-            Let's Encrypt y permite publicar el servicio de forma segura.</p>
+    body {
+      font-family: 'Inter', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.7;
+    }
 
-        <h3>Despliegue</h3>
-        <p>Se crearon los contenedores Docker correspondientes a:</p>
-        <ul style="display:inline-block; text-align:left;"></ul>
-            <li>VaultWarden</li>
-            <li>Nginx Proxy Manager (como proxy inverso)</li>
-        </ul>
-        <p>Durante la configuración inicial surgieron conflictos de puertos debido a servicios previamente levantados en el
-            sistema, que fueron reasignados correctamente.</p>
-        <p>Una vez configurado el reverse proxy y vinculados los certificados SSL al dominio de DuckDNS, el servicio quedó
-            accesible vía HTTPS.</p>
+    a {
+      color: var(--accent);
+      text-decoration: none;
+      font-weight: 500;
+    }
 
-        <h3>Resultado</h3>
-        <p>VaultWarden se ejecuta de forma estable en la Raspberry Pi, protegido mediante cifrado TLS y accesible a través
-            de un dominio externo. El sistema proporciona una solución local, segura y autosuficiente para la gestión de
-            contraseñas sin depender de plataformas externas.</p>
-        <p> A parte tengo copias de seguridad de los datos semanalmente, una completa y otra incremental para que los nuevos datos se vayan agregando a los datos anteriores.</p>
+    a:hover {
+      text-decoration: underline;
+    }
+
+    header {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 3rem 1.5rem 2rem;
+      text-align: center;
+    }
+
+    header h1 {
+      font-size: 2.8rem;
+      font-weight: 700;
+      letter-spacing: -0.04em;
+      margin-bottom: 0.5rem;
+    }
+
+    nav ul {
+      list-style: none;
+      display: inline-flex;
+      gap: 1.5rem;
+      margin-top: 1rem;
+    }
+
+    main {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 0 1.5rem 4rem;
+    }
+
+    .intro {
+      margin-bottom: 3rem;
+    }
+
+    .intro h2 {
+      font-size: 2rem;
+      font-weight: 600;
+      margin-bottom: 0.5rem;
+    }
+
+    .intro p {
+      font-size: 1.05rem;
+    }
+
+    section {
+      margin-bottom: 3rem;
+    }
+
+    section h3 {
+      font-size: 1.4rem;
+      font-weight: 600;
+      margin-bottom: 0.75rem;
+    }
+
+    section h4 {
+      font-size: 1.05rem;
+      font-weight: 600;
+      margin-top: 1.5rem;
+      margin-bottom: 0.5rem;
+    }
+
+    section p {
+      color: var(--text);
+      margin-bottom: 0.75rem;
+    }
+
+    .card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 1.75rem;
+    }
+
+    ul {
+      margin: 1rem 0 1rem 1.2rem;
+    }
+
+    ul li {
+      margin-bottom: 0.4rem;
+      color: var(--text);
+    }
+
+    footer {
+      border-top: 1px solid var(--border);
+      padding: 2rem 1.5rem;
+      text-align: center;
+      color: var(--muted);
+      font-size: 0.9rem;
+    }
+
+    @media (max-width: 600px) {
+      header h1 {
+        font-size: 2.2rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>Mi Portafolio</h1>
+    <nav>
+      <ul>
+        <li><a href="../index.html">Inicio</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+
+    <div class="intro">
+      <h2>Proyecto 6</h2>
+      <p>Implementación de VaultWarden en el servidor con Docker, dominio y servidor proxy</p>
+    </div>
+
+    <section class="card">
+      <h3>Descripción</h3>
+      <p>
+        He lanzado VaultWarden en una Raspberry Pi como solución de gestión de contraseñas privadas y alojadas sin depender de plataformas externas.
+        El proyecto está basado en la implementación mantenida por Dani García y está optimizado para arquitecturas ARM.
+      </p>
     </section>
 
-    <footer>
-      <p>© 2025 Izan - Todo ha sido creado por mi</p>
-    </footer>
+    <section class="card">
+      <h3>Requisitos previos</h3>
 
-  </body>
+      <h4>Dominio o subdominio dinámico</h4>
+      <p>Para este proyecto utilicé DuckDNS como proveedor DNS, creando un subdominio para asociarlo al servicio.</p>
+      <p>Me aseguré de tener los puertos libres en el servidor y comprendí el funcionamiento del sistema mediante la documentación oficial.</p>
+      <a href="https://bitwarden.com/help/managing-items/" target="_blank">Documentación oficial de Bitwarden para auto almacenamiento</a>
+
+      <h4>Reverse Proxy</h4>
+      <p>
+        VaultWarden requiere HTTPS para garantizar la transmisión cifrada de datos. Al no disponer inicialmente de certificados,
+        implementé un proxy inverso mediante Nginx Proxy Manager ejecutado en Docker.
+        Este proxy gestiona automáticamente certificados SSL con Let's Encrypt y permite publicar el servicio de forma segura.
+      </p>
+    </section>
+
+    <section class="card">
+      <h3>Despliegue</h3>
+      <p>Se crearon los contenedores Docker correspondientes a:</p>
+      <ul>
+        <li>VaultWarden</li>
+        <li>Nginx Proxy Manager (proxy inverso)</li>
+      </ul>
+      <p>
+        Durante la configuración inicial surgieron conflictos de puertos debido a servicios previamente levantados en el sistema,
+        los cuales fueron reasignados correctamente.
+      </p>
+      <p>
+        Una vez configurado el reverse proxy y vinculados los certificados SSL al dominio de DuckDNS, el servicio quedó accesible vía HTTPS.
+      </p>
+    </section>
+
+    <section class="card">
+      <h3>Resultado</h3>
+      <p>
+        VaultWarden se ejecuta de forma estable en la Raspberry Pi, protegido mediante cifrado TLS y accesible a través de un dominio externo.
+        El sistema proporciona una solución local, segura y autosuficiente para la gestión de contraseñas sin depender de plataformas externas.
+      </p>
+      <p>
+        Además, se realizan copias de seguridad semanales: una completa y otra incremental para conservar el histórico de datos.
+      </p>
+    </section>
+
+  </main>
+
+  <footer>
+    <p>2025 Izan · Todo ha sido creado por mí con una poca ayuda de distribucion de Chat GPT</p>
+  </footer>
+
+</body>
 </html>
