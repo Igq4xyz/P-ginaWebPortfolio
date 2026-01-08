@@ -160,7 +160,7 @@
 
     <section class="card">
       <p>
-        Tras encontrar las limitaciones del uso gratuito de modelos de IA en la nube, decidí investigar alternativas que me permitieran disponer de un asistente de inteligencia artificial totalmente local, sin restricciones y ejecutado con mis propios recursos.
+        Tras encontrar las limitaciones del uso gratuito de modelos de IA en la nube, decidí investigar alternativas que me permitieran disponer de un asistente de inteligencia artificial totalmente local, sin restricciones y lanzado con mis propios recursos como mi tarjeta gráfica la cual es una Rtx 1660 Super.
         Esta búsqueda me llevó a Ollama, una herramienta gratuita que permite descargar y ejecutar modelos de lenguaje de gran tamaño offline, tanto en Windows como en Linux.
       </p>
     </section>
@@ -171,8 +171,8 @@
         Tras instalar Ollama en mi equipo, comencé a trabajar con su interfaz de comandos en PowerShell, además de probar la interfaz gráfica incluida.
         Para determinar qué modelo se ajustaba mejor al hardware de mi equipo, consulté recomendaciones y validé compatibilidad (VRAM, RAM y rendimiento esperado).
       </p>
-      <p>Posteriormente descargué el modelo apropiado mediante:</p>
-      <code>ollama pull &lt;modelo&gt;</code>
+      <p>Posteriormente descargué el modelo apropiado pero con ciertas limitaciones para que mi hardware no se sobrecalentara ni trabaje demasiado:</p>
+      <code>ollama pull &lt;y el modelo&gt;</code>
     </section>
 
     <section class="card">
@@ -203,7 +203,7 @@
         <li>Servicio en Python que recibe mensajes, los envía a Ollama y devuelve la respuesta generada</li>
       </ul>
       <p>
-        Asimismo, programé respuestas por defecto para casos como falta de contexto, respuestas ambiguas y saludos iniciales,
+        Seguido de esto, programé respuestas por defecto para casos como falta de contexto, respuestas ambiguas y saludos iniciales,
         garantizando una interacción más natural.
       </p>
     </section>

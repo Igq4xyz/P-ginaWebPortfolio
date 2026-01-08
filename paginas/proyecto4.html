@@ -131,9 +131,8 @@
     <section class="card">
       <h3>Descripción general</h3>
       <p>
-        Durante las últimas semanas he realizado la configuración y optimización de una Raspberry Pi 4 (4 GB RAM)
-        utilizando Ubuntu Server 24.04 como sistema base. Este sistema operativo proporciona un entorno estable y
-        familiar que facilita la gestión y automatización de servicios.
+        Durante las últimas semanas he realizado la configuración y optimización de una Raspberry Pi 4 (6 GB RAM)
+        utilizando Ubuntu Server 24.04 como sistema base. Ya que estoy más familiarizado con este SO para los servidores.
       </p>
     </section>
 
@@ -148,8 +147,7 @@
         La solución consistió en instalar el paquete <strong>iproute2</strong> y definir manualmente nuevas tablas de
         enrutamiento personalizadas en <code>/etc/iproute2/rt_tables</code>, añadiendo las siguientes entradas:
       </p>
-      <code>60 60
-61 61</code>
+      <code>60 60 <br> 61 61</code>
       <p>
         Tras aplicar estos cambios, Netplan dejó de producir errores y ambas interfaces comenzaron a funcionar
         correctamente.
@@ -171,9 +169,16 @@
     <section class="card">
       <h3>Migración de Nextcloud a almacenamiento externo</h3>
       <p>
+        A la hora de levantar este proyecto debía hacerlo de manera manual diariamente con scrips y ejecutar el típico
+        ./script.sh para que se levante, así que se me ocurió utilizar docker para migrar el Nextcloud y Jupyter.
+      </p>
+      <p>
         Como parte de la transición hacia un entorno más autosuficiente, incorporé un dispositivo de almacenamiento
         externo temporal para proceder a la migración de Nextcloud desde Docker a la Raspberry Pi, mejorando la
         estabilidad y fiabilidad del servicio.
+      </p>
+      <p>
+        Así creando un servicio de systemd ya podía levantar todo automático.
       </p>
     </section>
 
